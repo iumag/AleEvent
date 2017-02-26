@@ -4,6 +4,8 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { AboutPage } from '../pages/about/about';
+import { HttpModule, JsonpModule } from '@angular/http';
+import { HttpService} from './http.service';
 @NgModule({
   declarations: [
     MyApp,
@@ -12,7 +14,9 @@ import { AboutPage } from '../pages/about/about';
       AboutPage
   ],
   imports: [
-    IonicModule.forRoot(MyApp)
+      IonicModule.forRoot(MyApp),
+      HttpModule,
+      JsonpModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -21,6 +25,6 @@ import { AboutPage } from '../pages/about/about';
       TabsPage,
       AboutPage
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
+  providers: [{ provide: ErrorHandler, useClass: IonicErrorHandler }, HttpService]
 })
 export class AppModule {}

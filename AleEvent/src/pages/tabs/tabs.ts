@@ -10,7 +10,16 @@ export class TabsPage {
     // should be each tab's root Page
     tab1Root: any = HomePage;
     tab2Root: any = AboutPage;
-    constructor() {
 
+    test: boolean = false;
+
+    clicked() {
+        this.test = !this.test;
+        console.log(this.test);
+    }
+ 
+
+    constructor() {
+      
     }
 }

@@ -1,4 +1,8 @@
-﻿<ion-tabs>
-    <ion-tab [root]="tab1Root" tabTitle="Home" tabIcon="home"></ion-tab>
-    <ion-tab [root]="tab2Root" tabTitle="About" tabIcon="information-circle"></ion-tab>
-</ion-tabs>
+﻿
+        <button (click)="clicked()" ion-button color="light">Light</button>
+
+
+    <ion-tabs>
+        <ion-tab [root]="tab1Root" tabTitle="Home" tabIcon="home"></ion-tab>
+        <ion-tab [root]="tab2Root" *ngIf="test" tabTitle="About" tabIcon="information-circle"></ion-tab>
+    </ion-tabs>
