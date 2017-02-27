@@ -2,16 +2,20 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { CityPage } from '../pages/city/city';
 import { TabsPage } from '../pages/tabs/tabs';
 import { AboutPage } from '../pages/about/about';
 import { HttpModule, JsonpModule } from '@angular/http';
 import { HttpService} from './http.service';
+import {ModalContentPage} from '../pages/home/home';
 @NgModule({
   declarations: [
     MyApp,
       HomePage,
       TabsPage,
-      AboutPage
+      AboutPage,
+      CityPage,
+      ModalContentPage
   ],
   imports: [
       IonicModule.forRoot(MyApp),
@@ -23,7 +27,9 @@ import { HttpService} from './http.service';
     MyApp,
       HomePage,
       TabsPage,
-      AboutPage
+      AboutPage,
+      CityPage,
+      ModalContentPage
   ],
   providers: [{ provide: ErrorHandler, useClass: IonicErrorHandler }, HttpService]
 })
