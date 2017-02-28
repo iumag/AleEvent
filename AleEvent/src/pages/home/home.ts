@@ -43,28 +43,42 @@ export class HomePage {
 @Component({
     template: `
 <ion-header>
-  <ion-toolbar>
-    <ion-title style="text-transform: uppercase;">
-     <img src="http://10.100.3.68/img/holiday/{{holiday?.picture}}">
+   <ion-toolbar>
+   <ion-title style="text-transform: uppercase;">
+     <img width="24" src="http://10.100.3.68/img/holiday/{{holiday?.picture}}">
        {{holiday?.name}}
     </ion-title>
-    <ion-buttons start>
-      <button ion-button (click)="dismiss()">
-<ion-icon ios="ios-close-circle" md="md-close-circle"></ion-icon>
+    <ion-buttons end>
+      <button ion-button icon-only>
+        <ion-icon color="aleevent" name="cart"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-buttons end>
+      <button  (click)="dismiss()" ion-button icon-only>
+        <ion-icon name="close"></ion-icon>
       </button>
     </ion-buttons>
   </ion-toolbar>
+
 </ion-header>
 <ion-content>
   <ion-list>
+  <ion-card>
+
+  <ion-card-content>
+    <div [innerHTML]="holiday.description"></div>
+  </ion-card-content>
   
- <div [innerHTML]="holiday.description"></div>
-      <ion-item *ngFor="let item of holiday['items']">
-        {{item.title}}
-        <ion-note item-right>
-          {{item.note}}
-        </ion-note>
-      </ion-item>
+  <ion-slides pager>
+
+  <ion-slide *ngFor="let picture of holiday.pictures">
+    <img src="http://10.100.3.68/{{picture?.link}}">
+  </ion-slide>
+
+</ion-slides>
+	<iframe src="http://www.youtube.com/embed/Gym1QEsdHI0" frameborder="0" width="100%" height="315"></iframe>
+</ion-card>
+   
   </ion-list>
 </ion-content>
 `
@@ -77,7 +91,6 @@ export class ModalContentPage {
         public params: NavParams,
         public viewCtrl: ViewController
     ) {
-        console.log(this.params.get('opts'));
         var holidays = this.params.get('opts');
         this.holiday = holidays[this.params.get('charNum')];
     }
