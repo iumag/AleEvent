@@ -7,7 +7,8 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { AboutPage } from '../pages/about/about';
 import { HttpModule, JsonpModule } from '@angular/http';
 import { HttpService} from './http.service';
-import {ModalContentPage} from '../pages/home/home';
+import {ModalContentPage} from '../modal/modal';
+
 @NgModule({
   declarations: [
     MyApp,

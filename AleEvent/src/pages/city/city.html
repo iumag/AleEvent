@@ -8,7 +8,7 @@
 
 <ion-content class="card-background-page">
 
-    <ion-card style="background-color: black;" *ngFor="let city of cities">
+    <ion-card (click)="openModal({charNum: i})" style="background-color: black;" *ngFor="let city of cities; let i=index">
         <img *ngIf="city.status" style="opacity: 0.8" src="http://10.100.3.68/img/city/{{city?.picture}}" />
         <img *ngIf="!city.status" style="opacity: 0.8; filter:grayscale(100%)" src="http://10.100.3.68/img/city/{{city?.picture}}" />
         <div style="text-transform: uppercase;  font-weight: 300" class="card-title">

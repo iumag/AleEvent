@@ -1,8 +1,9 @@
 ﻿import { Component, OnInit} from '@angular/core';
 import { HttpService} from '../../app/http.service';
-import { NavController } from 'ionic-angular';
+import { NavController, ModalController, Platform, NavParams, ViewController } from 'ionic-angular';
 import { Response} from '@angular/http';
 import { City } from '../../app/city';
+import {ModalContentPage} from '../../modal/modal';
 @Component({
     selector: 'page-city',
     templateUrl: 'city.html'
@@ -10,9 +11,17 @@ import { City } from '../../app/city';
 export class CityPage {
 
     cities: City[] = []
+    data: Array<string> = []
 
-    constructor(public navCtrl: NavController, private httpService: HttpService) {
+    constructor(public navCtrl: NavController, private httpService: HttpService, public modalCtrl: ModalController) {
 
+    }
+
+    openModal(characterNum) {
+        this.data = [];
+        this.data.push(characterNum, 'city');
+        let modal = this.modalCtrl.create(ModalContentPage, this.data, this.cities);
+        modal.present();
     }
 
     ngOnInit() {
