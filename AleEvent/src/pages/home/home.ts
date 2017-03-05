@@ -4,6 +4,7 @@ import { NavController, ModalController, Platform, NavParams, ViewController } f
 import { Response} from '@angular/http';
 import { Holiday } from '../../app/holiday';
 import {ModalContentPage} from '../../modal/modal';
+import {CityPage} from  '../city/city';
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -22,6 +23,10 @@ export class HomePage {
         this.data.push(characterNum, 'holiday');
         let modal = this.modalCtrl.create(ModalContentPage, this.data, this.holidays);
         modal.present();
+    }
+
+    openCity() {
+        this.navCtrl.push(CityPage);
     }
     
     ngOnInit() {
