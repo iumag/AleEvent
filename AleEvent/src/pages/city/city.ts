@@ -4,6 +4,7 @@ import { NavController, ModalController, Platform, NavParams, ViewController } f
 import { Response} from '@angular/http';
 import { City } from '../../app/city';
 import {ModalContentPage} from '../../modal/modal';
+import {EventPage} from  '../event/event';
 @Component({
     selector: 'page-city',
     templateUrl: 'city.html'
@@ -35,6 +36,10 @@ export class CityPage {
                     this.cities.push({ picture: city.picture, name: city.name, description: city.description, video: city.video, pictures: city.pictures, status: city.status});
                 }
             });
+    }
+
+    openEvent() {
+        this.navCtrl.push(EventPage);
     }
 
     onLink(url: string) {

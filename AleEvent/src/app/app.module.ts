@@ -3,7 +3,7 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { CityPage } from '../pages/city/city';
-import { TabsPage } from '../pages/tabs/tabs';
+import { EventPage } from '../pages/event/event';
 import { AboutPage } from '../pages/about/about';
 import { HttpModule, JsonpModule } from '@angular/http';
 import { HttpService} from './http.service';
@@ -13,8 +13,8 @@ import {ModalContentPage} from '../modal/modal';
   declarations: [
     MyApp,
       HomePage,
-      TabsPage,
       AboutPage,
+      EventPage,
       CityPage,
       ModalContentPage
   ],
@@ -27,7 +27,7 @@ import {ModalContentPage} from '../modal/modal';
   entryComponents: [
     MyApp,
       HomePage,
-      TabsPage,
+      EventPage,
       AboutPage,
       CityPage,
       ModalContentPage

@@ -1,0 +1,10 @@
+﻿.card-background-page {
+
+  .card-md-event{
+      width: calc(50% - 20px);
+  }
+
+  .card-md + ion-card {
+    margin-top: 10px;
+}
+}

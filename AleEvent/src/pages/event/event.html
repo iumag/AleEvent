@@ -1,10 +1,35 @@
-﻿<!DOCTYPE html>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
-</head>
-<body>
-    <div>Место для содержимого.</div>
-</body>
-</html>
+﻿<ion-header>
+    <ion-navbar color="dark">
+        <ion-title>
+            <img src="http://10.100.3.68/images/new2.png">
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content class="card-background-page" style="background: transparent url(http://10.100.3.68/images/pexels-photo-225224.jpg) no-repeat center center;background-size: cover;">
+    <div style="flex-wrap: wrap;
+    align-content: flex-start;
+    display: flex;">
+        <ion-card  class="card-md-event" style="background-color: rgba(255, 255, 255, 0.81);
+    height: 147px;
+   " *ngFor="let event of events; let i=index">
+            <img style="width:40px;height:40px;     margin-top: 44px;display:inline;" src="http://10.100.3.68/img/event/{{event?.event.picture}}" />
+
+            <div style="text-transform: uppercase;  font-weight: 300" class="card-title">
+                <span style="display: block;
+                        font-size: 17px;
+    margin-top: 38px;color:black">{{event?.event.name}}</span>
+            </div>
+            <ion-fab right top style="
+    right: 3px;
+    top: 0px;
+">
+                <button (click)="openModal({charNum: i})" ion-fab mini style="background-color: rgba(56, 126, 245, 0);      border-radius: 0;
+      box-shadow: none;">
+                    <ion-icon color="aleevent" name="information-circle"></ion-icon>
+                </button>
+            </ion-fab>
+        </ion-card>
+    </div>
+
+</ion-content>
