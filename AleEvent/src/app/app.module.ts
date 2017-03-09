@@ -7,6 +7,7 @@ import { EventPage } from '../pages/event/event';
 import { AboutPage } from '../pages/about/about';
 import { HttpModule, JsonpModule } from '@angular/http';
 import { HttpService} from './http.service';
+import {CartService} from './cart.service';
 import {ModalContentPage} from '../modal/modal';
 
 @NgModule({
@@ -32,6 +33,6 @@ import {ModalContentPage} from '../modal/modal';
       CityPage,
       ModalContentPage
   ],
-  providers: [{ provide: ErrorHandler, useClass: IonicErrorHandler }, HttpService]
+  providers: [{ provide: ErrorHandler, useClass: IonicErrorHandler }, HttpService, CartService]
 })
 export class AppModule {}

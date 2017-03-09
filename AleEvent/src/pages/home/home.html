@@ -8,7 +8,7 @@
 
 <ion-content class="card-background-page">
     <ion-card style="background-color: black;" *ngFor="let holiday of holidays; let i=index">
-        <img (click)="openCity()"  style="opacity: 0.8" src="http://10.100.3.68/img/holiday/application/{{holiday?.picture_app}}" />
+        <img (click)="openCity(holiday)"  style="opacity: 0.8" src="http://10.100.3.68/img/holiday/application/{{holiday?.picture_app}}" />
         <div style="text-transform: uppercase;  font-weight: 300" class="card-title"><span style="    display: block;
     margin-left: 36px;
     margin-right: 32px;border: 1px solid white;    text-shadow: 1px 1px 1px black;  
@@ -16,6 +16,11 @@
         <ion-fab right bottom>
             <button (click)="openModal({charNum: i})" ion-fab mini style="background-color: rgba(56, 126, 245, 0)">
                 <ion-icon name="information-circle"></ion-icon>
+            </button>
+        </ion-fab>
+         <ion-fab right top>
+            <button ion-fab mini style="background-color: rgba(56, 126, 245, 0)">
+                <ion-icon *ngIf="holiday.show" color="secondary" name="checkmark-circle"></ion-icon>
             </button>
         </ion-fab>
     </ion-card>
