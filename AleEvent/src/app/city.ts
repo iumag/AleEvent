@@ -1,4 +1,5 @@
 ﻿export class City {
+    id: Number;
     picture: string;
     name: string;
     description: string;

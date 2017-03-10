@@ -10,10 +10,10 @@
     <div style="flex-wrap: wrap;
     align-content: flex-start;
     display: flex;">
-        <ion-card  class="card-md-event" style="background-color: rgba(255, 255, 255, 0.81);
+        <ion-card (click)="selectEvent(event)" class="card-md-event" style="background-color: rgba(255, 255, 255, 0.81);
     height: 147px;
    " *ngFor="let event of events; let i=index">
-            <img style="width:40px;height:40px;     margin-top: 44px;display:inline;" src="http://10.100.3.68/img/event/{{event?.event.picture}}" />
+            <img style="width:40px;height:40px; margin-top: 44px;display:inline;" src="http://10.100.3.68/img/event/{{event?.event.picture}}" />
 
             <div style="text-transform: uppercase;  font-weight: 300" class="card-title">
                 <span style="display: block;
@@ -29,7 +29,17 @@
                     <ion-icon color="aleevent" name="information-circle"></ion-icon>
                 </button>
             </ion-fab>
+            <ion-fab right bottom>
+                <button ion-fab mini style="background-color: rgba(56, 126, 245, 0);     border-radius: 0;
+      box-shadow: none;">
+                <ion-icon *ngIf="event.show" color="secondary" name="checkmark-circle"></ion-icon>
+            </button>
+            </ion-fab>
         </ion-card>
     </div>
-
+    <ion-fab right bottom>
+        <button style="right:-9px;" color="aleevent" ion-fab>
+                <ion-icon name="arrow-dropright-circle"></ion-icon>
+            </button>
+    </ion-fab>
 </ion-content>

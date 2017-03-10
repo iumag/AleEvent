@@ -1,25 +1,27 @@
 <ion-header>
-  <ion-navbar color="dark">
-    <ion-title>
-        <img src="http://10.100.3.68/images/new2.png">
-    </ion-title>
-  </ion-navbar>
+    <ion-navbar color="dark">
+        <ion-title>
+            <img src="http://10.100.3.68/images/new2.png">
+        </ion-title>
+    </ion-navbar>
 </ion-header>
 
 <ion-content class="card-background-page">
     <ion-card style="background-color: black;" *ngFor="let holiday of holidays; let i=index">
-        <img (click)="openCity(holiday)"  style="opacity: 0.8" src="http://10.100.3.68/img/holiday/application/{{holiday?.picture_app}}" />
+        <img (click)="openCity(holiday)" style="opacity: 0.8" src="http://10.100.3.68/img/holiday/application/{{holiday?.picture_app}}" />
         <div style="text-transform: uppercase;  font-weight: 300" class="card-title"><span style="    display: block;
     margin-left: 36px;
     margin-right: 32px;border: 1px solid white;    text-shadow: 1px 1px 1px black;  
     padding: 8px;">{{holiday?.name}}</span></div>
         <ion-fab right bottom>
-            <button (click)="openModal({charNum: i})" ion-fab mini style="background-color: rgba(56, 126, 245, 0)">
+            <button (click)="openModal({charNum: i})" ion-fab mini style="background-color: rgba(56, 126, 245, 0);     border-radius: 0;
+      box-shadow: none;">
                 <ion-icon name="information-circle"></ion-icon>
             </button>
         </ion-fab>
-         <ion-fab right top>
-            <button ion-fab mini style="background-color: rgba(56, 126, 245, 0)">
+        <ion-fab right top>
+            <button ion-fab mini style="background-color: rgba(56, 126, 245, 0);     border-radius: 0;
+      box-shadow: none;">
                 <ion-icon *ngIf="holiday.show" color="secondary" name="checkmark-circle"></ion-icon>
             </button>
         </ion-fab>
