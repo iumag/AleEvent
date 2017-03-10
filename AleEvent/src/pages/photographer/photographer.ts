@@ -6,6 +6,7 @@ import { Response } from '@angular/http';
 import { Photographer } from '../../app/photographer';
 import { ModalContentPage } from '../../modal/modal';
 import { Cart } from '../../app/cart';
+import { TransportPage } from '../transport/transport';
 @Component({
     selector: 'page-photographer',
     templateUrl: 'photographer.html'
@@ -47,7 +48,7 @@ export class PhotographerPage {
             }
         });
         this.cartService.createCart(item.id,'photographer');
-        //this.navCtrl.push(EventPage);
+        this.navCtrl.push(TransportPage);
     }
 
 }
