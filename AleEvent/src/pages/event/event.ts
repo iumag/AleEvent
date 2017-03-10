@@ -6,6 +6,7 @@ import { Response} from '@angular/http';
 import { Event } from '../../app/event';
 import {ModalContentPage} from '../../modal/modal';
 import { Cart } from '../../app/cart';
+import {HotelPage} from  '../hotel/hotel';
 @Component({
     selector: 'page-event',
     templateUrl: 'event.html'
@@ -47,6 +48,10 @@ export class EventPage {
             }
            this.cartService.createCart(item.id,'event');
            console.log(this.cartService.getCart());
+    }
+
+    openHotel(){
+        this.navCtrl.push(HotelPage);
     }
 
     onLink(url: string) {
