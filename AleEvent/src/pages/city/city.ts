@@ -36,12 +36,20 @@ export class CityPage {
                 let citiesList = data.json().model.data;
                 for (let index in citiesList) {
                     let city = citiesList[index];
-                    this.cities.push({ picture: city.picture, name: city.name, description: city.description, video: city.video, pictures: city.pictures, status: city.status});
+                    this.cities.push({ picture: city.picture, name: city.name, description: city.description, video: city.video, pictures: city.pictures, status: city.status, show: false});
                 }
             });
     }
 
-    openEvent() {
+    openEvent(item) {
+        item.show = !item.show;
+        if (!item.show) return;
+        this.cities.forEach(function(item2, i, arr) {
+            if (item2 != item){
+                item2.show = false;
+            }
+        });
+        this.cartService.createCart(item.id,'city');
         this.navCtrl.push(EventPage);
     }
 

@@ -5,4 +5,5 @@
     video: string;
     pictures: Array<string>;
     status: number;
+    show: boolean;
 }
