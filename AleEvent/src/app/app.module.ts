@@ -4,6 +4,7 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { CityPage } from '../pages/city/city';
 import { HotelPage } from '../pages/hotel/hotel';
+import { PhotographerPage } from '../pages/photographer/photographer';
 import { EventPage } from '../pages/event/event';
 import { AboutPage } from '../pages/about/about';
 import { HttpModule, JsonpModule } from '@angular/http';
@@ -19,6 +20,7 @@ import { ModalContentPage } from '../modal/modal';
     EventPage,
     CityPage,
     HotelPage,
+    PhotographerPage,
     ModalContentPage
   ],
   imports: [
@@ -34,6 +36,7 @@ import { ModalContentPage } from '../modal/modal';
     AboutPage,
     CityPage,
     HotelPage,
+    PhotographerPage,
     ModalContentPage
   ],
   providers: [{ provide: ErrorHandler, useClass: IonicErrorHandler }, HttpService, CartService]

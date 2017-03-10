@@ -6,6 +6,7 @@ import { Response } from '@angular/http';
 import { Hotel } from '../../app/hotel';
 import { ModalContentPage } from '../../modal/modal';
 import { Cart } from '../../app/cart';
+import { PhotographerPage } from '../photographer/photographer';
 @Component({
     selector: 'page-hotel',
     templateUrl: 'hotel.html'
@@ -26,28 +27,28 @@ export class HotelPage {
         modal.present();
     }
 
-     ngOnInit() {
+    ngOnInit() {
         this.carts = this.cartService.getCart();
         this.httpService.getData('http://10.100.3.68/api/hotel?column=sort&direction=asc&page=1&search_column=city_id&search_operator=equal_to&search_query_1=2&search_query_2=')
             .subscribe((data: Response) => {
                 let hotelsList = data.json().model.data;
-                for (let index in hotelsList) { 
+                for (let index in hotelsList) {
                     let hotel = hotelsList[index];
-                    this.hotels.push({id : hotel.id,  cost: hotel.cost, name: hotel.name, picture: hotel.picture, description: hotel.description, video: hotel.video, pictures: hotel.pictures, show:false });
+                    this.hotels.push({ id: hotel.id, cost: hotel.cost, name: hotel.name, picture: hotel.picture, description: hotel.description, video: hotel.video, pictures: hotel.pictures, show: false });
                 }
             });
     }
 
-    openTransport(item){
-         item.show = !item.show;
+    openTransport(item) {
+        item.show = !item.show;
         if (!item.show) return;
-        this.hotels.forEach(function(item2, i, arr) {
-            if (item2 != item){
+        this.hotels.forEach(function (item2, i, arr) {
+            if (item2 != item) {
                 item2.show = false;
             }
         });
-        this.cartService.createCart(item.id,'hotel');
-        //this.navCtrl.push(EventPage);
+        this.cartService.createCart(item.id, 'hotel');
+        this.navCtrl.push(PhotographerPage);
     }
 
 }
