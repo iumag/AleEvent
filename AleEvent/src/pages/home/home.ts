@@ -1,6 +1,7 @@
 import { Component, OnInit} from '@angular/core';
 import { HttpService} from '../../app/http.service';
 import { CartService } from '../../app/cart.service';
+import { RelationService } from '../../app/relations.service';
 import { NavController, ModalController, Platform, NavParams, ViewController } from 'ionic-angular';
 import { Response} from '@angular/http';
 import { Holiday } from '../../app/holiday';
@@ -17,7 +18,7 @@ export class HomePage implements OnInit{
     data: Array<string> = []
     carts: Cart[];
 
-    constructor(public navCtrl: NavController, private httpService: HttpService, public modalCtrl: ModalController, private cartService : CartService) {
+    constructor(public navCtrl: NavController, private httpService: HttpService, public modalCtrl: ModalController, private cartService : CartService, private relationService : RelationService) {
         this.carts = null;
     }
 
@@ -36,6 +37,7 @@ export class HomePage implements OnInit{
                 item2.show = false;
             }
         });
+        this.relationService.setHolidayId(item.id);
         this.cartService.createCart(item.id,'hotel');
         this.navCtrl.push(CityPage);
     }

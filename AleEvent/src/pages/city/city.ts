@@ -1,11 +1,12 @@
-﻿import { Component, OnInit} from '@angular/core';
-import { HttpService} from '../../app/http.service';
+﻿import { Component, OnInit } from '@angular/core';
+import { HttpService } from '../../app/http.service';
 import { CartService } from '../../app/cart.service';
+import { RelationService } from '../../app/relations.service';
 import { NavController, ModalController, Platform, NavParams, ViewController } from 'ionic-angular';
-import { Response} from '@angular/http';
+import { Response } from '@angular/http';
 import { City } from '../../app/city';
-import {ModalContentPage} from '../../modal/modal';
-import {EventPage} from  '../event/event';
+import { ModalContentPage } from '../../modal/modal';
+import { EventPage } from '../event/event';
 import { Cart } from '../../app/cart';
 @Component({
     selector: 'page-city',
@@ -17,7 +18,7 @@ export class CityPage {
     data: Array<string> = []
     carts: Cart[];
 
-    constructor(public navCtrl: NavController, private httpService: HttpService, public modalCtrl: ModalController, private cartService: CartService) {
+    constructor(public navCtrl: NavController, private httpService: HttpService, public modalCtrl: ModalController, private cartService: CartService, private relationService: RelationService) {
 
     }
 
@@ -36,7 +37,7 @@ export class CityPage {
                 let citiesList = data.json().model.data;
                 for (let index in citiesList) {
                     let city = citiesList[index];
-                    this.cities.push({id:city.id, picture: city.picture, name: city.name, description: city.description, video: city.video, pictures: city.pictures, status: city.status, show: false});
+                    this.cities.push({ id: city.id, picture: city.picture, name: city.name, description: city.description, video: city.video, pictures: city.pictures, status: city.status, show: false });
                 }
             });
     }
@@ -44,12 +45,13 @@ export class CityPage {
     openEvent(item) {
         item.show = !item.show;
         if (!item.show) return;
-        this.cities.forEach(function(item2, i, arr) {
-            if (item2 != item){
+        this.cities.forEach(function (item2, i, arr) {
+            if (item2 != item) {
                 item2.show = false;
             }
         });
-        this.cartService.createCart(item.id,'city');
+        this.relationService.setCityId(item.id);
+        this.cartService.createCart(item.id, 'city');
         this.navCtrl.push(EventPage);
     }
 

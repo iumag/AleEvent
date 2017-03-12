@@ -1,6 +1,7 @@
 ﻿import { Component, OnInit} from '@angular/core';
 import { HttpService} from '../../app/http.service';
 import { CartService } from '../../app/cart.service';
+import { RelationService } from '../../app/relations.service';
 import { NavController, ModalController, Platform, NavParams, ViewController } from 'ionic-angular';
 import { Response} from '@angular/http';
 import { Event } from '../../app/event';
@@ -16,8 +17,10 @@ export class EventPage {
     events: Event[] = []
     data: Array<string> = []
     carts: Cart[];
+    city_id: Number;
+    holiday_id: Number;
 
-    constructor(public navCtrl: NavController, private httpService: HttpService, public modalCtrl: ModalController,private cartService: CartService) {
+    constructor(public navCtrl: NavController, private httpService: HttpService, public modalCtrl: ModalController,private cartService: CartService,  private relationService : RelationService) {
 
     }
 
@@ -30,7 +33,9 @@ export class EventPage {
 
     ngOnInit() {
         this.carts = this.cartService.getCart();
-        this.httpService.getData('http://10.100.3.68/api/related_event?per_page=10000&column=sort&direction=asc&page=1&search_column=city_id&search_operator=equal_to&search_query_1=2&search_query_2=&search_query_3=7&search_column2=holiday_id')
+        this.city_id = this.relationService.getCityId();
+        this.holiday_id = this.relationService.getHolidayId();
+        this.httpService.getData('http://10.100.3.68/api/related_event?per_page=10000&column=sort&direction=asc&page=1&search_column=city_id&search_operator=equal_to&search_query_1='+this.city_id+'&search_query_2=&search_query_3='+this.holiday_id+'&search_column2=holiday_id')
             .subscribe((data: Response) => {
                 let eventsList = data.json().model.data;
                 for (let index in eventsList) { 
