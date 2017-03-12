@@ -1,19 +1,18 @@
 ﻿.card-background-page {
-
   ion-card {
     position: relative;
     text-align: center;
   }
-
-  .card-title {
+  .card-title-city {
     position: absolute;
-    top: 36%;
+    top: 8%;
+    text-align: left;
+    margin-left: 15px;
     font-size: 2.0em;
     width: 100%;
     font-weight: bold;
     color: #fff;
   }
-
   .card-subtitle {
     font-size: 1.0em;
     position: absolute;
@@ -21,5 +20,9 @@
     width: 100%;
     color: #fff;
   }
-
+  .card-background-city {
+    margin: 0;
+    width: 100%;
+    margin-bottom: -7px;
+  }
 }
