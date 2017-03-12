@@ -9,21 +9,15 @@
 <ion-content class="card-background-page">
 
     <ion-card *ngFor="let hotel of hotels; let i=index">
-        <img class="card-image-hotel" src="http://10.100.3.68/img/hotel/{{hotel?.picture}}"/>
-  <ion-card-content>
-    <ion-card-title class="card-title-hotel">
-     {{hotel?.name}}
-      </ion-card-title>
-      <p class="card-cost-hotel">{{hotel.cost}} ZL</p>
-      <button ion-button color="aleevent">WYBIERZ</button>
-  </ion-card-content>
-        
-        <ion-fab right bottom>
-            <button (click)="openModal({charNum: i})" ion-fab mini style="background-color: rgba(56, 126, 245, 0);     border-radius: 0;
-      box-shadow: none;">
-                <ion-icon name="information-circle"></ion-icon>
-            </button>
-        </ion-fab>
+        <img class="card-image-hotel" src="http://10.100.3.68/img/hotel/{{hotel?.picture}}" />
+        <ion-card-content>
+            <ion-card-title class="card-title-hotel">
+                {{hotel?.name}}
+            </ion-card-title>
+            <p class="card-cost-hotel">{{hotel.cost}} ZL</p>
+            <button (click)="openModal({charNum: i})" ion-button color="aleevent">WIĘCEJ</button>
+            <button (click)="openTransport(hotel)" ion-button color="aleevent">WYBIERZ</button>
+        </ion-card-content>
         <ion-fab right top>
             <button ion-fab mini style="background-color: rgba(56, 126, 245, 0);     border-radius: 0;
       box-shadow: none;">
