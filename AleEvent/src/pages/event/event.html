@@ -42,7 +42,7 @@
             </ion-fab>
         </ion-card>
     </div>
-    <ion-fab right bottom>
+    <ion-fab right bottom *ngIf="show_button">
         <button (click)="openHotel()" style="right:-9px;" color="aleevent" ion-fab>
                 <ion-icon name="arrow-dropright-circle"></ion-icon>
             </button>

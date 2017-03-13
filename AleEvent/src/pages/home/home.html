@@ -10,7 +10,7 @@
 </ion-header>
 <ion-content class="card-background-page">
     <ion-card style="background-color: black;" *ngFor="let holiday of holidays; let i=index">
-        <img (click)="openCity(holiday)" style="opacity: 0.8" src="http://10.100.3.68/img/holiday/application/{{holiday?.picture_app}}" />
+        <img (click)="openCity(holiday)" style="opacity: 0.8;min-height: 227px;" src="http://10.100.3.68/img/holiday/application/{{holiday?.picture_app}}" />
         <div style="text-transform: uppercase;  font-weight: 300" class="card-title"><span style="    display: block;
     margin-left: 36px;
     margin-right: 32px;border: 1px solid white;    text-shadow: 1px 1px 1px black;  

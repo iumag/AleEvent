@@ -19,6 +19,7 @@ export class EventPage {
     carts: Cart[];
     city_id: Number;
     holiday_id: Number;
+    show_button: boolean;
 
     constructor(public menu: MenuController, public navCtrl: NavController, private httpService: HttpService, public modalCtrl: ModalController,private cartService: CartService,  private relationService : RelationService) {
 
@@ -47,12 +48,18 @@ export class EventPage {
 
     selectEvent(item: Event) {
             item.show = !item.show;
+            this.show_button = true;
             if(item.show === false) {
                 this.cartService.deleteCart(item.id, 'event');
+                this.events.filter(this.isShow).length > 0 ? this.show_button = true : this.show_button = false
                 return;
             }
            this.cartService.createCart(item.id,'event');
            console.log(this.cartService.getCart());
+    }
+
+    isShow(value){
+        return value.show === true
     }
 
     openHotel(){
