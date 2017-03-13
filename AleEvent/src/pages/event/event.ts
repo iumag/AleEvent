@@ -2,7 +2,7 @@
 import { HttpService} from '../../app/http.service';
 import { CartService } from '../../app/cart.service';
 import { RelationService } from '../../app/relations.service';
-import { NavController, ModalController, Platform, NavParams, ViewController } from 'ionic-angular';
+import { NavController, ModalController, Platform, NavParams, ViewController, MenuController } from 'ionic-angular';
 import { Response} from '@angular/http';
 import { Event } from '../../app/event';
 import {ModalContentPage} from '../../modal/modal';
@@ -20,7 +20,7 @@ export class EventPage {
     city_id: Number;
     holiday_id: Number;
 
-    constructor(public navCtrl: NavController, private httpService: HttpService, public modalCtrl: ModalController,private cartService: CartService,  private relationService : RelationService) {
+    constructor(public menu: MenuController, public navCtrl: NavController, private httpService: HttpService, public modalCtrl: ModalController,private cartService: CartService,  private relationService : RelationService) {
 
     }
 
@@ -61,5 +61,9 @@ export class EventPage {
 
     onLink(url: string) {
         window.open(url);
+    }
+    
+    openMenu(){
+        this.menu.open();
     }
 }

@@ -1,11 +1,13 @@
 <ion-header>
     <ion-navbar color="dark">
+        <button ion-button menuToggle icon-only>
+      <ion-icon name='menu'></ion-icon>
+    </button>
         <ion-title>
             <img src="http://10.100.3.68/images/new2.png">
         </ion-title>
     </ion-navbar>
 </ion-header>
-
 <ion-content class="card-background-page">
     <ion-card style="background-color: black;" *ngFor="let holiday of holidays; let i=index">
         <img (click)="openCity(holiday)" style="opacity: 0.8" src="http://10.100.3.68/img/holiday/application/{{holiday?.picture_app}}" />

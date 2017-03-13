@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpService } from '../../app/http.service';
 import { CartService } from '../../app/cart.service';
 import { RelationService } from '../../app/relations.service';
-import { NavController, ModalController, Platform, NavParams, ViewController } from 'ionic-angular';
+import { NavController, ModalController, Platform, NavParams, ViewController, MenuController } from 'ionic-angular';
 import { Response } from '@angular/http';
 import { Hotel } from '../../app/hotel';
 import { ModalContentPage } from '../../modal/modal';
@@ -19,7 +19,7 @@ export class HotelPage {
     carts: Cart[];
     city_id: Number;
 
-    constructor(public navCtrl: NavController, private httpService: HttpService, public modalCtrl: ModalController, private cartService: CartService, private relationService: RelationService) {
+    constructor(public menu: MenuController, public navCtrl: NavController, private httpService: HttpService, public modalCtrl: ModalController, private cartService: CartService, private relationService: RelationService) {
     }
 
     openModal(characterNum) {
@@ -52,6 +52,10 @@ export class HotelPage {
         });
         this.cartService.createCart(item.id, 'hotel');
         this.navCtrl.push(PhotographerPage);
+    }
+
+    openMenu(){
+        this.menu.open();
     }
 
 }

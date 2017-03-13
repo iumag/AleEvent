@@ -2,7 +2,7 @@
 import { HttpService } from '../../app/http.service';
 import { CartService } from '../../app/cart.service';
 import { RelationService } from '../../app/relations.service';
-import { NavController, ModalController, Platform, NavParams, ViewController } from 'ionic-angular';
+import { NavController, ModalController, Platform, NavParams, ViewController, MenuController } from 'ionic-angular';
 import { Response } from '@angular/http';
 import { City } from '../../app/city';
 import { ModalContentPage } from '../../modal/modal';
@@ -18,7 +18,7 @@ export class CityPage {
     data: Array<string> = []
     carts: Cart[];
 
-    constructor(public navCtrl: NavController, private httpService: HttpService, public modalCtrl: ModalController, private cartService: CartService, private relationService: RelationService) {
+    constructor(public menu: MenuController, public navCtrl: NavController, private httpService: HttpService, public modalCtrl: ModalController, private cartService: CartService, private relationService: RelationService) {
 
     }
 
@@ -57,5 +57,9 @@ export class CityPage {
 
     onLink(url: string) {
         window.open(url);
+    }
+
+    openMenu(){
+        this.menu.open();
     }
 }
