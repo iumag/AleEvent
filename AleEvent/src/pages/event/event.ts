@@ -46,7 +46,7 @@ export class EventPage {
             });
     }
 
-    selectEvent(item: Event) {
+    selectEvent(item) {
             item.show = !item.show;
             this.show_button = true;
             if(item.show === false) {
@@ -54,7 +54,7 @@ export class EventPage {
                 this.events.filter(this.isShow).length > 0 ? this.show_button = true : this.show_button = false
                 return;
             }
-           this.cartService.createCart(item.id,'event');
+           this.cartService.createCart(item.id,'event', item);
            console.log(this.cartService.getCart());
     }
 

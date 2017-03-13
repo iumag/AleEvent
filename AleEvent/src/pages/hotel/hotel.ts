@@ -50,7 +50,7 @@ export class HotelPage {
                 item2.show = false;
             }
         });
-        this.cartService.createCart(item.id, 'hotel');
+        this.cartService.createCart(item.id, 'hotel', item);
         this.navCtrl.push(PhotographerPage);
     }
 

@@ -38,7 +38,7 @@ export class HomePage implements OnInit{
             }
         });
         this.relationService.setHolidayId(item.id);
-        this.cartService.createCart(item.id,'hotel');
+        this.cartService.createCart(item.id,'hotel', item);
         this.navCtrl.push(CityPage);
     }
     

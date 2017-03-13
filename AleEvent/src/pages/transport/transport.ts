@@ -49,7 +49,7 @@ export class TransportPage {
                 item2.show = false;
             }
         });
-        this.cartService.createCart(item.id, 'transport');
+        this.cartService.createCart(item.id, 'transport', item);
         //this.navCtrl.push(EventPage);
     }
 

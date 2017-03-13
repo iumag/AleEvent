@@ -51,7 +51,7 @@ export class CityPage {
             }
         });
         this.relationService.setCityId(item.id);
-        this.cartService.createCart(item.id, 'city');
+        this.cartService.createCart(item.id, 'city',item);
         this.navCtrl.push(EventPage);
     }
 

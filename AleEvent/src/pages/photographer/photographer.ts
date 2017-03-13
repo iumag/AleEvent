@@ -50,7 +50,7 @@ export class PhotographerPage {
                 item2.show = false;
             }
         });
-        this.cartService.createCart(item.id, 'photographer');
+        this.cartService.createCart(item.id, 'photographer', item);
         this.navCtrl.push(TransportPage);
     }
 

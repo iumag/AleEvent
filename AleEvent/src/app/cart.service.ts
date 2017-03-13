@@ -7,7 +7,7 @@ export class CartService {
         return this.carts;
     }
 
-    createCart(entity_id: Number, entity_type: String) {
+    createCart(entity_id: Number, entity_type: String, item : Array<any>) {
         if (entity_type != 'event') {
             this.carts.forEach(function (element, i, arr) {
                 if (element.entity_type === entity_type) {
@@ -15,7 +15,7 @@ export class CartService {
                 }
             }.bind(this));
         }
-        this.carts.push({ entity_id: entity_id, entity_type: entity_type });
+        this.carts.push({ entity_id: entity_id, entity_type: entity_type, item: item });
     }
 
     deleteCart(entity_id: Number, entity_type: String){
