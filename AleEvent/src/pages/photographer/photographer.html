@@ -13,13 +13,10 @@
 
 <ion-content class="card-background-page">
 
-    <ion-card style="background-color: black;" *ngFor="let photographer of photographers; let i=index">
-        <img (click)="openTransport(photographer)" style="opacity: 0.8" src="http://10.100.3.68/img/photographer/{{photographer?.picture}}" />
+    <ion-card class="card-background-city" style="background-color: black;" *ngFor="let photographer of photographers; let i=index">
+        <img (click)="openTransport(photographer)" style="opacity: 0.8;    height: 143px;" src="http://10.100.3.68/img/photographer/{{photographer?.picture}}" />
         <div style="text-transform: uppercase;  font-weight: 300" class="card-title">
-            <span style="display: block;
-                  margin-left: 36px;
-                  margin-right: 32px;border: 1px solid white; text-shadow: 1px 1px 1px black;
-                  padding: 8px;">{{photographer?.name}}</span>
+            <span class="card-title-photographer">{{photographer?.name}}</span>
         </div>
         <ion-fab right bottom>
             <button (click)="openModal({charNum: i})" ion-fab mini style="background-color: rgba(56, 126, 245, 0);     border-radius: 0;
