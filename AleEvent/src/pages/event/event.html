@@ -34,10 +34,10 @@
                     <ion-icon color="aleevent" name="information-circle"></ion-icon>
                 </button>
             </ion-fab>
-            <ion-fab right bottom>
+            <ion-fab right bottom *ngIf="event.show">
                 <button ion-fab mini style="background-color: rgba(56, 126, 245, 0);     border-radius: 0;
       box-shadow: none;">
-                <ion-icon *ngIf="event.show" color="secondary" name="checkmark-circle"></ion-icon>
+                <ion-icon color="secondary" name="checkmark-circle"></ion-icon>
             </button>
             </ion-fab>
         </ion-card>
