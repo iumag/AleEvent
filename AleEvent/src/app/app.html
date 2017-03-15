@@ -7,10 +7,15 @@
     <ion-content>
         <ion-list>
             <button ion-item *ngFor="let menu of carts">
-                <ion-thumbnail style="text-transform: uppercase;    padding-top: 24px;" item-left><h2 style="font-size: 21px" color="aleevent">{{menu.entity_type}}</h2></ion-thumbnail>
-                <ion-thumbnail *ngIf="menu.item.cost" style="text-transform: uppercase;" item-rigth><h2 style="font-size: 21px" color="aleevent">{{menu.item.cost}} ZL</h2></ion-thumbnail>
-                <span style="text-transform: uppercase" *ngIf="!menu.item.event">{{menu.item.name}}</span>
-                <span style="text-transform: uppercase" *ngIf="menu.item.event">{{menu.item.event.name}} - {{menu.item.cost}} ZL</span>
+                <ion-thumbnail style="text-transform: uppercase;    padding-top: 24px;    width: 106px;" item-left><h2 style="font-size: 15px" color="aleevent">{{menu.entity_type}}</h2></ion-thumbnail>
+                <ion-thumbnail *ngIf="menu.item.cost" style="text-transform: uppercase;text-align:center" item-rigth><h2 style="font-size: 21px" color="aleevent">{{menu.item.cost}} ZL</h2> <ion-buttons>
+                     <button color="aleevent" ion-button icon-only (click)="deleteitem(menu)">
+                         <ion-icon name="close"></ion-icon>
+                    </button>
+                </ion-buttons></ion-thumbnail>
+                <span style="text-transform: uppercase;text-align: center" *ngIf="!menu.item.event"><p>{{menu.item.name}}</p>
+                </span>
+                <span style="text-transform: uppercase; text-align: center" *ngIf="menu.item.event"><p>{{menu.item.event.name}}</p></span>    
             </button>
         </ion-list>
     </ion-content>

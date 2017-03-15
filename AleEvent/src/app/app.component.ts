@@ -18,6 +18,10 @@ export class MyApp{
        this.carts  = this.cart.getCart();
      }
 
+     deleteitem(item){
+        this.cart.deleteCart(item.entity_id, item.entity_type)
+     }
+
   constructor(public cart: CartService, platform: Platform) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
