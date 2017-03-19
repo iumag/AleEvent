@@ -34,16 +34,7 @@ export class EventPage {
 
     ngOnInit() {
         this.carts = this.cartService.getCart();
-        this.city_id = this.relationService.getCityId();
-        this.holiday_id = this.relationService.getHolidayId();
-        this.httpService.getData('http://10.100.3.68/api/related_event?per_page=10000&column=sort&direction=asc&page=1&search_column=city_id&search_operator=equal_to&search_query_1='+this.city_id+'&search_query_2=&search_query_3='+this.holiday_id+'&search_column2=holiday_id')
-            .subscribe((data: Response) => {
-                let eventsList = data.json().model.data;
-                for (let index in eventsList) { 
-                    let event = eventsList[index];
-                    this.events.push({id : event.id, city: event.city, city_id: event.city_id, cost: event.cost, event: event.event, event_id: event.event_id, holiday: event.holiday, holiday_id: event.holiday_id, show:false });
-                }
-            });
+        this.events = this.relationService.setEvent();
     }
 
     selectEvent(item) {

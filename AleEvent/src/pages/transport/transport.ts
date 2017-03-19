@@ -30,15 +30,7 @@ export class TransportPage {
 
     ngOnInit() {
         this.carts = this.cartService.getCart();
-        this.city_id = this.relationService.getCityId();
-        this.httpService.getData('http://10.100.3.68/api/transport?column=sort&direction=asc&page=1&search_column=city_id&search_operator=equal_to&search_query_1=' + this.city_id + '&search_query_2=')
-            .subscribe((data: Response) => {
-                let transportsList = data.json().model.data;
-                for (let index in transportsList) {
-                    let hotel = transportsList[index];
-                    this.transports.push({ id: hotel.id, cost: hotel.cost, name: hotel.name, picture: hotel.picture, description: hotel.description, video: hotel.video, pictures: hotel.pictures, show: false });
-                }
-            });
+        this.transports = this.relationService.setTransport();
     }
 
     openTransport(item) {

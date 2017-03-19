@@ -32,14 +32,7 @@ export class CityPage {
     ngOnInit() {
         this.carts = this.cartService.getCart();
         console.log(this.carts);
-        this.httpService.getData('http://10.100.3.68/api/city?column=sort&direction=asc&page=1&search_column=id&search_operator=equal_to&search_query_1=&search_query_2=')
-            .subscribe((data: Response) => {
-                let citiesList = data.json().model.data;
-                for (let index in citiesList) {
-                    let city = citiesList[index];
-                    this.cities.push({ id: city.id, picture: city.picture, name: city.name, description: city.description, video: city.video, pictures: city.pictures, status: city.status, show: false });
-                }
-            });
+        this.cities = this.relationService.setCity();
     }
 
     openEvent(item) {
