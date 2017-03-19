@@ -7,6 +7,7 @@ import { HotelPage } from '../pages/hotel/hotel';
 import { PhotographerPage } from '../pages/photographer/photographer';
 import { TransportPage } from '../pages/transport/transport';
 import { EventPage } from '../pages/event/event';
+import { FormPage } from '../pages/form/form';
 import { AboutPage } from '../pages/about/about';
 import { HttpModule, JsonpModule } from '@angular/http';
 import { HttpService } from './http.service';
@@ -22,6 +23,7 @@ import { ModalContentPage } from '../modal/modal';
     EventPage,
     CityPage,
     HotelPage,
+    FormPage,
     TransportPage,
     PhotographerPage,
     ModalContentPage
@@ -39,6 +41,7 @@ import { ModalContentPage } from '../modal/modal';
     AboutPage,
     CityPage,
     HotelPage,
+    FormPage,
     TransportPage,
     PhotographerPage,
     ModalContentPage

@@ -41,10 +41,10 @@ export class EventPage {
         item.show = !item.show;
         this.show_button = true;
         if (item.show === false) {
-            this.cartService.deleteCart(item.id, 'event');
+            this.cartService.deleteCart(item.id, 'related_event');
             return;
         }
-        this.cartService.createCart(item.id, 'event', item);
+        this.cartService.createCart(item.id, 'related_event', item);
         console.log(this.cartService.getCart());
     }
 

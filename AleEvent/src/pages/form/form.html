@@ -1,0 +1,47 @@
+<ion-header>
+    <ion-navbar color="dark">
+        <ion-buttons end>
+            <button (click)="openMenu()" ion-button icon-only>
+                <ion-icon name="menu"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-title>
+            <img src="http://10.100.3.68/images/new2.png">
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content class="card-background-page">
+
+    <form id="form_data" novalidate>
+        <ion-list>
+
+            <ion-item>
+                <ion-label stacked>Name</ion-label>
+                <ion-input name="FIO" type="text"></ion-input>
+            </ion-item>
+
+            <ion-item>
+                <ion-label stacked>Email</ion-label>
+                <ion-input name="email" type="email"></ion-input>
+            </ion-item>
+
+            <ion-item>
+                <ion-label stacked>Message</ion-label>
+                <ion-textarea name="message"></ion-textarea>
+            </ion-item>
+
+            <ion-item>
+                <ion-label stacked>Phone</ion-label>
+                <ion-input type="phone" name="phone"></ion-input>
+            </ion-item>
+            <div *ngFor="let input of carts">
+                <input *ngIf="input.entity_type !== 'related_event'" type="hidden" [name]="input.entity_type" [value]="input.entity_id">
+                <input type="hidden" [name]="input.entity_type +'[]'" [value]="input.entity_id" *ngIf="input.entity_type === 'related_event'">
+
+            </div>
+
+        </ion-list>
+        <button color="aleevent" (click)="save()" ion-button full>ZAMAWIAM</button>
+    </form>
+
+</ion-content>

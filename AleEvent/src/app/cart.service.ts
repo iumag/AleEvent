@@ -12,7 +12,7 @@ export class CartService {
     }
 
     createCart(entity_id: Number, entity_type: String, item : Array<any>) {
-        if (entity_type != 'event') {
+        if (entity_type != 'related_event') {
             this.carts.forEach(function (element, i, arr) {
                 if (element.entity_type === entity_type) {
                     this.carts.splice(i, 1);
@@ -27,7 +27,7 @@ export class CartService {
                 if ((element.entity_type === entity_type) && (entity_id === element.entity_id)) {
                     this.carts.splice(i, 1);
                     switch(entity_type){
-                        case 'event':
+                        case 'related_event':
                             this.relation.setShowEvent(element)
                             break;
                         case 'hotel':

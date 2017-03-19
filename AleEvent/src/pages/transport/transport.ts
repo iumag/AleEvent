@@ -7,6 +7,7 @@ import { Response } from '@angular/http';
 import { Transport } from '../../app/transport';
 import { ModalContentPage } from '../../modal/modal';
 import { Cart } from '../../app/cart';
+import { FormPage } from '../form/form';
 @Component({
     selector: 'page-transport',
     templateUrl: 'transport.html'
@@ -42,7 +43,7 @@ export class TransportPage {
             }
         });
         this.cartService.createCart(item.id, 'transport', item);
-        //this.navCtrl.push(EventPage);
+        this.navCtrl.push(FormPage);
     }
 
     openMenu() {

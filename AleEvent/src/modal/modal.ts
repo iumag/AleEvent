@@ -1,8 +1,15 @@
-﻿import { Component, OnInit} from '@angular/core';
+﻿import { Component, OnInit } from '@angular/core';
 import { NavController, ModalController, Platform, NavParams, ViewController } from 'ionic-angular';
+import { CityPage } from '../pages/city/city';
+import { HotelPage } from '../pages/hotel/hotel';
+import { PhotographerPage } from '../pages/photographer/photographer';
+import { TransportPage } from '../pages/transport/transport';
+import { EventPage } from '../pages/event/event';
+import { HomePage } from '../pages/home/home';
+import { RelationService } from '../app/relations.service';
 
 @Component({
-    template: `
+  template: `
 <ion-header>
    <ion-toolbar>
    <ion-title style="text-transform: uppercase;">
@@ -12,9 +19,10 @@ import { NavController, ModalController, Platform, NavParams, ViewController } f
  <span *ngIf="modal_item.event"> {{modal_item?.event.name}}</span>
     </ion-title>
     <ion-buttons end>
-      <button ion-button icon-only>
-        <ion-icon color="aleevent" name="cart"></ion-icon>
-      </button>
+      <!-- <button (click)="setShow()" ion-button icon-only>
+        <img src="http://vps367646.ovh.net/images/shopping-cart%20(1)2.png" *ngIf="!modal_item?.show" width="32" height="32">
+         <img src="http://vps367646.ovh.net/images/shopping-cart-verified-symbol.png" *ngIf="modal_item?.show" width="32" height="32">
+      </button> !-->
     </ion-buttons>
     <ion-buttons end>
       <button  (click)="dismiss()" ion-button icon-only>
@@ -22,7 +30,7 @@ import { NavController, ModalController, Platform, NavParams, ViewController } f
       </button>
     </ion-buttons>
   </ion-toolbar>
-
+  
 </ion-header>
 <ion-content>
   <ion-list>
@@ -53,21 +61,46 @@ import { NavController, ModalController, Platform, NavParams, ViewController } f
 `
 })
 export class ModalContentPage {
-    modal_item;
-    entity;
+  modal_item;
+  entity;
 
-    constructor(
-        public platform: Platform,
-        public params: NavParams,
-        public viewCtrl: ViewController
-    ) {
-        var index = this.params.get('0')['charNum'];
-        this.entity = this.params.get('1');
-        var modal_items = this.params.get('opts');
-        this.modal_item = modal_items[index];
-    }
+  constructor(
+    public navCtrl: NavController,
+    public platform: Platform,
+    public params: NavParams,
+    public viewCtrl: ViewController,
+    private relationService: RelationService,
+  ) {
+    var index = this.params.get('0')['charNum'];
+    this.entity = this.params.get('1');
+    var modal_items = this.params.get('opts');
+    this.modal_item = modal_items[index];
+  }
 
-    dismiss() {
-        this.viewCtrl.dismiss();
+  dismiss() {
+    this.viewCtrl.dismiss();
+    /*setTimeout(function() {
+    if (this.modal_item.show === true) {
+      switch (this.entity) {
+        case 'holiday':
+          this.navCtrl.push(CityPage);
+          break;
+        case 'city':
+          this.navCtrl.push(EventPage);
+          break;
+        case 'hotel':
+          this.navCtrl.push(PhotographerPage);
+          break;
+        case 'photographer':
+          this.navCtrl.push(TransportPage);
+          break;
+      }
     }
+    }.bind(this), 2000);*/
+  }
+
+  setShow() {
+    this.modal_item.show = !this.modal_item.show;
+    //this.relationService.setShowHoliday(this.modal_item, this.modal_item.show)
+  }
 }
