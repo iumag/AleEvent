@@ -35,8 +35,7 @@ export class HotelPage {
     }
 
     openTransport(item) {
-        item.show = !item.show;
-        if (!item.show) return;
+        item.show = true
         this.hotels.forEach(function (item2, i, arr) {
             if (item2 != item) {
                 item2.show = false;

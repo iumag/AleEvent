@@ -15,7 +15,7 @@
 
     <ion-card class="card-background-city" style="background-color: black;" *ngFor="let photographer of photographers; let i=index">
         <img (click)="openTransport(photographer)" style="opacity: 0.8;    height: 143px;" src="http://10.100.3.68/img/photographer/{{photographer?.picture}}" />
-        <div style="text-transform: uppercase;  font-weight: 300" class="card-title">
+        <div (click)="openTransport(photographer)"  style="text-transform: uppercase;  font-weight: 300" class="card-title">
             <span class="card-title-photographer">{{photographer?.name}}</span>
         </div>
         <ion-fab right bottom>

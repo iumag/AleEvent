@@ -16,7 +16,7 @@
     <ion-card class="card-background-city" style="background-color: black;" *ngFor="let city of cities; let i=index">
         <img (click)="openEvent(city)" *ngIf="city.status" style="opacity: 0.8;    height: 143px;" src="http://10.100.3.68/img/city/{{city?.picture}}" />
         <img *ngIf="!city.status" style="opacity: 0.8; filter:grayscale(100%);height: 143px" src="http://10.100.3.68/img/city/{{city?.picture}}" />
-        <div class="card-title-city">
+        <div (click)="openEvent(city)" class="card-title-city">
             <span>{{city?.name}}</span>
         </div>
         <ion-fab *ngIf="city.status" right bottom>

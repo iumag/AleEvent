@@ -15,7 +15,7 @@
 
     <ion-card class="card-background-city" style="background-color: black;" *ngFor="let transport of transports; let i=index">
         <img (click)="openTransport(transport)" style="opacity: 0.8;    height: 143px;" src="http://10.100.3.68/img/transport/{{transport?.picture}}" />
-        <div style="text-transform: uppercase;  font-weight: 300" class="card-title">
+        <div (click)="openTransport(transport)" style="text-transform: uppercase;  font-weight: 300" class="card-title">
             <span class="card-title-transport">{{transport?.name}}</span>
         </div>
         <ion-fab right bottom>
