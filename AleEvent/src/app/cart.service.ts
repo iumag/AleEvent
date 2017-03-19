@@ -1,7 +1,11 @@
 import { Cart } from './cart';
-
+import {RelationService} from './relations.service'
+import { Injectable } from '@angular/core';
+@Injectable()
 export class CartService {
     carts: Cart[] = [];
+
+    constructor(private relation : RelationService) {}
 
     getCart(): Cart[] {
         return this.carts;
@@ -22,6 +26,17 @@ export class CartService {
             this.carts.forEach(function (element, i, arr) {
                 if ((element.entity_type === entity_type) && (entity_id === element.entity_id)) {
                     this.carts.splice(i, 1);
+                    switch(entity_type){
+                        case 'event':
+                            this.relation.setShowEvent(element)
+                            break;
+                        case 'hotel':
+                            this.relation.setShowHotel(element)
+                            break;
+                        case 'transport':
+                            this.relation.setShowTransport(element)
+                            break;
+                    }
                 }
             }.bind(this));
     }

@@ -100,11 +100,11 @@ export class RelationService {
         return this.transports;
     }
 
-    getHolidays(){
+    getHolidays() {
         return this.holidays
     }
 
-    getCities(){
+    getCities() {
         return this.cities
     }
 
@@ -112,15 +112,15 @@ export class RelationService {
         return this.events
     }
 
-    getHotels(){
+    getHotels() {
         return this.hotels
     }
 
-    getPhotographer(){
+    getPhotographer() {
         return this.photographers
     }
 
-    getTransport(){
+    getTransport() {
         return this.transports
     }
 
@@ -138,6 +138,27 @@ export class RelationService {
 
     setHolidayId(id) {
         this.holiday_id = id;
+    }
+
+    setShowEvent(item) {
+        var obj = this.events.filter(function (obj) {
+            return obj.id === item.entity_id
+        });
+        obj[0].show = false;
+    }
+
+    setShowHotel(item) {
+        var obj = this.hotels.filter(function (obj) {
+            return obj.id === item.entity_id
+        });
+        obj[0].show = false;
+    }
+
+    setShowTransport(item) {
+        var obj = this.transports.filter(function (obj) {
+            return obj.id === item.entity_id
+        });
+        obj[0].show = false;
     }
 
 
