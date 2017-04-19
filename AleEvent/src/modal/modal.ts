@@ -13,15 +13,15 @@ import { RelationService } from '../app/relations.service';
 <ion-header>
    <ion-toolbar>
    <ion-title style="text-transform: uppercase;">
-     <img *ngIf="!modal_item.event" width="24" src="http://10.100.3.68/img/{{entity}}/{{modal_item?.picture}}">
-  <img *ngIf="modal_item.event" width="24" src="http://10.100.3.68/img/{{entity}}/{{modal_item?.event.picture}}">
+     <img *ngIf="!modal_item.event" width="24" src="https://aleevent.pl/img/{{entity}}/{{modal_item?.picture}}">
+  <img *ngIf="modal_item.event" width="24" src="https://aleevent.pl/img/{{entity}}/{{modal_item?.event.picture}}">
       <span *ngIf="!modal_item.event"> {{modal_item?.name}}</span>
  <span *ngIf="modal_item.event"> {{modal_item?.event.name}}</span>
     </ion-title>
     <ion-buttons end>
       <!-- <button (click)="setShow()" ion-button icon-only>
-        <img src="http://vps367646.ovh.net/images/shopping-cart%20(1)2.png" *ngIf="!modal_item?.show" width="32" height="32">
-         <img src="http://vps367646.ovh.net/images/shopping-cart-verified-symbol.png" *ngIf="modal_item?.show" width="32" height="32">
+        <img src="https://aleevent.pl/images/shopping-cart%20(1)2.png" *ngIf="!modal_item?.show" width="32" height="32">
+         <img src="https://aleevent.pl/images/shopping-cart-verified-symbol.png" *ngIf="modal_item?.show" width="32" height="32">
       </button> !-->
     </ion-buttons>
     <ion-buttons end>
@@ -41,19 +41,26 @@ import { RelationService } from '../app/relations.service';
     <div *ngIf="modal_item.event" [innerHTML]="modal_item?.event.description"></div>
   </ion-card-content>
   
-  <ion-slides pager>
-<div *ngIf="!modal_item.event"> 
+  <ion-slides pager *ngIf="!modal_item.event">
+
   <ion-slide *ngFor="let picture of modal_item?.pictures">
-    <img src="http://10.100.3.68/{{picture?.link}}">
+    <img src="https://aleevent.pl/{{picture?.link}}">
   </ion-slide>
-</div>
-<div *ngIf="modal_item.event"> 
-  <ion-slide *ngFor="let picture of modal_item?.event.pictures">
-    <img src="http://10.100.3.68/{{picture?.link}}">
-  </ion-slide>
-</div>
+
+
+
+
 </ion-slides>
-	<iframe src="http://www.youtube.com/embed/Gym1QEsdHI0" frameborder="0" width="100%" height="315"></iframe>
+  <ion-slides pager *ngIf="modal_item.event">
+
+
+
+  <ion-slide *ngFor="let picture of modal_item?.event.pictures">
+    <img src="https://aleevent.pl/{{picture?.link}}">
+  </ion-slide>
+
+</ion-slides>
+	<iframe *ngIf="modal_item.video" src="{{modal_item?.video}}" frameborder="0" width="100%" height="315"></iframe>
 </ion-card>
    
   </ion-list>

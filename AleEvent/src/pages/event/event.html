@@ -6,19 +6,19 @@
             </button>
         </ion-buttons>
         <ion-title>
-            <img src="http://10.100.3.68/images/new2.png">
+            <img src="https://aleevent.pl/images/new2.png">
         </ion-title>
     </ion-navbar>
 </ion-header>
 
-<ion-content class="card-background-page" style="background: transparent url(http://10.100.3.68/images/pexels-photo-225224.jpg) no-repeat center center;background-size: cover;">
+<ion-content class="card-background-page" style="background: transparent url(https://aleevent.pl/images/bg-ale.jpg) no-repeat center center;background-size: cover;">
     <div style="flex-wrap: wrap;
     align-content: flex-start;
     display: flex;">
         <ion-card (click)="selectEvent(event)" class="card-md-event" style="background-color: rgba(255, 255, 255, 0.81);
     height: 147px;
    " *ngFor="let event of events; let i=index">
-            <img style="width:40px;height:40px; margin-top: 44px;display:inline;" src="http://10.100.3.68/img/event/{{event?.event.picture}}" />
+            <img style="width:40px;height:40px; margin-top: 44px;display:inline;" src="https://aleevent.pl/img/event/{{event?.event.picture}}" />
 
             <div style="text-transform: uppercase;  font-weight: 300" class="card-title">
                 <span style="display: block;
@@ -34,7 +34,8 @@
                     <ion-icon color="aleevent" name="information-circle"></ion-icon>
                 </button>
             </ion-fab>
-            <ion-fab right bottom *ngIf="event.show">
+            <ion-fab style="    width: 37px;
+    height: 39px;" right bottom *ngIf="event.show">
                 <button ion-fab mini style="background-color: rgba(56, 126, 245, 0);     border-radius: 0;
       box-shadow: none;">
                 <ion-icon color="secondary" name="checkmark-circle"></ion-icon>
@@ -42,7 +43,7 @@
             </ion-fab>
         </ion-card>
     </div>
-    <ion-fab right bottom>
+    <ion-fab style="margin-right: 57px;" right bottom>
         <button (click)="openHotel()" style="right:-9px;" color="aleevent" ion-fab>
                 <ion-icon name="arrow-dropright-circle"></ion-icon>
             </button>

@@ -18,6 +18,7 @@ export class RelationService {
     hotels: Hotel[] = [];
     photographers: Photographer[] = [];
     transports: Transport[] = [];
+    isEnable: Boolean;
 
     constructor(private httpService: HttpService) {
 
@@ -25,7 +26,7 @@ export class RelationService {
 
     setHoliday() {
         if (this.holidays.length <= 0) {
-            this.httpService.getData('http://10.100.3.68/api/holiday?column=sort&direction=asc&page=1&search_column=id&search_operator=equal_to&search_query_1=&search_query_2=')
+            this.httpService.getData('https://aleevent.pl/api/holiday?column=sort&direction=asc&page=1&search_column=id&search_operator=equal_to&search_query_1=&search_query_2=/')
                 .subscribe((data: Response) => {
                     let holidaysList = data.json().model.data;
                     for (let index in holidaysList) {
@@ -40,7 +41,7 @@ export class RelationService {
 
     setCity() {
         if (this.cities.length <= 0) {
-            this.httpService.getData('http://10.100.3.68/api/city?column=sort&direction=asc&page=1&search_column=id&search_operator=equal_to&search_query_1=&search_query_2=')
+            this.httpService.getData('https://aleevent.pl/api/city?column=sort&direction=asc&page=1&search_column=id&search_operator=equal_to&search_query_1=&search_query_2=')
                 .subscribe((data: Response) => {
                     let citiesList = data.json().model.data;
                     for (let index in citiesList) {
@@ -55,7 +56,7 @@ export class RelationService {
 
     setEvent() {
         if (this.events.length <= 0) {
-            this.httpService.getData('http://10.100.3.68/api/related_event?per_page=10000&column=sort&direction=asc&page=1&search_column=city_id&search_operator=equal_to&search_query_1=' + this.city_id + '&search_query_2=&search_query_3=' + this.holiday_id + '&search_column2=holiday_id')
+            this.httpService.getData('https://aleevent.pl/api/related_event?per_page=10000&column=sort&direction=asc&page=1&search_column=city_id&search_operator=equal_to&search_query_1=' + this.city_id + '&search_query_2=&search_query_3=' + this.holiday_id + '&search_column2=holiday_id')
                 .subscribe((data: Response) => {
                     let eventsList = data.json().model.data;
                     for (let index in eventsList) {
@@ -69,7 +70,7 @@ export class RelationService {
 
     setHotel() {
         if (this.hotels.length <= 0) {
-            this.httpService.getData('http://10.100.3.68/api/hotel?column=sort&direction=asc&page=1&search_column=city_id&search_operator=equal_to&search_query_1=' + this.city_id + '&search_query_2=')
+            this.httpService.getData('https://aleevent.pl/api/hotel?column=sort&direction=asc&page=1&search_column=city_id&search_operator=equal_to&search_query_1=' + this.city_id + '&search_query_2=')
                 .subscribe((data: Response) => {
                     let hotelsList = data.json().model.data;
                     for (let index in hotelsList) {
@@ -84,7 +85,7 @@ export class RelationService {
 
     setPhotographer() {
         if (this.photographers.length <= 0) {
-            this.httpService.getData('http://10.100.3.68/api/photographer?column=sort&direction=asc&page=1&search_column=city_id&search_operator=equal_to&search_query_1=' + this.city_id + '&search_query_2=')
+            this.httpService.getData('https://aleevent.pl/api/photographer?column=sort&direction=asc&page=1&search_column=city_id&search_operator=equal_to&search_query_1=' + this.city_id + '&search_query_2=')
                 .subscribe((data: Response) => {
                     let photographersList = data.json().model.data;
                     for (let index in photographersList) {
@@ -98,7 +99,7 @@ export class RelationService {
 
     setTransport() {
         if (this.transports.length <= 0) {
-            this.httpService.getData('http://10.100.3.68/api/transport?column=sort&direction=asc&page=1&search_column=city_id&search_operator=equal_to&search_query_1=' + this.city_id + '&search_query_2=')
+            this.httpService.getData('https://aleevent.pl/api/transport?column=sort&direction=asc&page=1&search_column=city_id&search_operator=equal_to&search_query_1=' + this.city_id + '&search_query_2=')
                 .subscribe((data: Response) => {
                     let transportsList = data.json().model.data;
                     for (let index in transportsList) {
@@ -142,6 +143,10 @@ export class RelationService {
         return this.holiday_id;
     }
 
+    getEnableAccess(){
+        return this.isEnable;
+    }
+
     setCityId(id) {
         this.city_id = id;
     }
@@ -169,6 +174,10 @@ export class RelationService {
             return obj.id === item.entity_id
         });
         obj[0].show = false;
+    }
+
+    setEnableAccess(bool){
+        this.isEnable = bool
     }
 
 
