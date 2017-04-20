@@ -8,7 +8,10 @@ export class HttpService {
     
 
     getData(link) {
-       
         return this.http.get(link)
+    }
+
+    postData(link, content) {
+        return this.http.post(link, content)
     }
 }
