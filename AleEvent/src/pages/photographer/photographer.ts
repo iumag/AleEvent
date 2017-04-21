@@ -42,7 +42,7 @@ export class PhotographerPage {
                 item2.show = false;
             }
         });
-        this.cartService.createCart(item.id, 'photographer', item);
+        this.cartService.createCart(item.id, 'photographer', item, 'Fotograf');
         this.navCtrl.push(TransportPage);
     }
 

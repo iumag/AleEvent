@@ -44,7 +44,7 @@ export class CityPage {
             }
         });
         this.relationService.setCityId(item.id);
-        this.cartService.createCart(item.id, 'city',item);
+        this.cartService.createCart(item.id, 'city',item, 'Miasto');
         this.navCtrl.push(EventPage);
     }
 

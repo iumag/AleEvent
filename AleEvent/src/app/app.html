@@ -7,18 +7,22 @@
     <ion-content>
         <ion-list>
             <button ion-item *ngFor="let menu of carts">
-                <ion-thumbnail style="text-transform: uppercase;    padding-top: 24px;    width: 106px;" item-left><h2 style="font-size: 15px" color="aleevent">{{menu.entity_type}}</h2></ion-thumbnail>
-                <ion-thumbnail *ngIf="menu.item.cost" style="text-transform: uppercase;text-align:center" item-rigth><h2 style="font-size: 21px" color="aleevent">{{menu.item.cost}} ZL</h2> <ion-buttons>
-                     <button *ngIf="menu.entity_type !== 'photographer'" color="aleevent" ion-button icon-only (click)="deleteitem(menu)">
-                         <ion-icon name="close"></ion-icon>
+                <div style="text-transform: uppercase;    padding-top: 24px;    width: 106px;" item-left><h2 style="font-size: 12px" color="aleevent">{{menu.name}}</h2></div>
+                <div *ngIf="menu.item.cost" style="text-transform: uppercase;text-align:center" item-rigth><h2 style="font-size: 16px;
+    float: left;
+    margin-top: 8px;" color="aleevent">{{menu.item.cost}} ZL</h2> <ion-buttons>
+                     <button style="    width: 19px;
+    height: 18px;" *ngIf="menu.entity_type !== 'photographer'" color="aleevent" ion-button small icon-only (click)="deleteitem(menu)">
+                         <ion-icon name="close" style="    padding-bottom: 0px;"></ion-icon>
                     </button>
-                </ion-buttons></ion-thumbnail>
-                <span style="text-transform: uppercase;text-align: center" *ngIf="!menu.item.event"><p>{{menu.item.name}}</p>
-                </span>
-                <span style="text-transform: uppercase; text-align: center" *ngIf="menu.item.event"><p>{{menu.item.event.name}}</p></span>    
+                </ion-buttons></div>
+                <div style="text-transform: uppercase;text-align: center;clear: both;" *ngIf="!menu.item.event"><p style="font-size: 12px;">{{menu.item.name}}</p>
+                </div>
+                   
+                <div style="text-transform: uppercase; text-align: center;clear:both;" *ngIf="menu.item.event"><p style="font-size: 12px;">{{menu.item.event.name}}</p></div>    
             </button>
             <button ion-item>
-                <ion-thumbnail style="text-transform: uppercase;    padding-top: 24px;    width: 106px;" item-left><h2 style="font-size: 15px" color="aleevent">SUMMA</h2></ion-thumbnail>
+                <div style="text-transform: uppercase;    padding-top: 24px;    width: 106px;" item-left><h2 style="font-size: 15px" color="aleevent">SUMMA</h2></div>
                 <span style="text-transform: uppercase;text-align: center"><p>{{allSum}}</p>
                 </span>
             </button>

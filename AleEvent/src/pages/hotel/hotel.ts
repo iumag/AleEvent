@@ -41,7 +41,7 @@ export class HotelPage {
                 item2.show = false;
             }
         });
-        this.cartService.createCart(item.id, 'hotel', item);
+        this.cartService.createCart(item.id, 'hotel', item, 'Hotel');
         this.navCtrl.push(PhotographerPage);
     }
 

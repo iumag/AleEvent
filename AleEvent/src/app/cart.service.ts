@@ -16,7 +16,7 @@ export class CartService {
         return this.allSum
     }
 
-    createCart(entity_id: Number, entity_type: String, item: Array<any>) {
+    createCart(entity_id: Number, entity_type: String, item: Array<any>, name: String) {
         this.allSum = 0;
         this.carts.forEach(function (element, i, arr) {
             if (entity_type != 'related_event') {
@@ -27,7 +27,7 @@ export class CartService {
             if (element.item.cost) this.allSum = this.allSum + 1
         }.bind(this));
         console.log(this.allSum)
-        this.carts.push({ entity_id: entity_id, entity_type: entity_type, item: item });
+        this.carts.push({ entity_id: entity_id, entity_type: entity_type, item: item, name: name });
     }
 
     deleteCart(entity_id: Number, entity_type: String) {

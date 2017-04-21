@@ -42,7 +42,7 @@ export class TransportPage {
                 item2.show = false;
             }
         });
-        this.cartService.createCart(item.id, 'transport', item);
+        this.cartService.createCart(item.id, 'transport', item, 'Transport');
         this.navCtrl.push(FormPage);
     }
 

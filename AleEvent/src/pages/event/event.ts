@@ -44,7 +44,7 @@ export class EventPage {
             this.cartService.deleteCart(item.id, 'related_event');
             return;
         }
-        this.cartService.createCart(item.id, 'related_event', item);
+        this.cartService.createCart(item.id, 'related_event', item, 'Atrakcje');
         console.log(this.cartService.getCart());
     }
 
