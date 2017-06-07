@@ -4,3 +4,7 @@ export class Cart {
     item: Array<any>;
     name: String;
 }
+
+export class AllSum{
+    allSum: any
+}

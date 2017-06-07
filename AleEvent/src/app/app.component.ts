@@ -3,7 +3,7 @@ import { Platform, AlertController } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
 import { CartService } from './cart.service';
 import { HomePage } from '../pages/home/home';
-import { Cart } from './cart';
+import { Cart,AllSum } from './cart';
 import { Network } from 'ionic-native';
 import { RelationService } from './relations.service';
 import { Inject, ViewChild } from '@angular/core';
@@ -44,7 +44,7 @@ export class MyApp {
   }
 
   carts: Cart[] = [];
-  allSum: Number = 0;
+  allSum: AllSum;
 
   ngOnInit() {
     this.carts = this.cart.getCart();

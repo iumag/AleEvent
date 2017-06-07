@@ -6,7 +6,7 @@
     </ion-header>
     <ion-content>
         <ion-list>
-            <button ion-item *ngFor="let menu of carts">
+            <button (click)="changePage(menu.entity_type)"ion-item *ngFor="let menu of carts">
                 <div style="text-transform: uppercase;    padding-top: 24px;    width: 106px;" item-left><h2 style="font-size: 12px" color="aleevent">{{menu.name}}</h2></div>
                 <div *ngIf="menu.item.cost" style="text-transform: uppercase;text-align:center" item-rigth><h2 style="font-size: 16px;
     float: left;
@@ -23,7 +23,7 @@
             </button>
             <button ion-item>
                 <div style="text-transform: uppercase;    padding-top: 24px;    width: 106px;" item-left><h2 style="font-size: 15px" color="aleevent">SUMMA</h2></div>
-                <span style="text-transform: uppercase;text-align: center"><p>{{allSum}}</p>
+                <span style="text-transform: uppercase;text-align: center"><p style="margin-top: 20px;font-size: 16px;" color="aleevent">{{allSum.allSum}} ZL</p>
                 </span>
             </button>
         </ion-list>
