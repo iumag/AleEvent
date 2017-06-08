@@ -35,17 +35,19 @@ export class HotelPage {
     }
 
     openTransport(item) {
-        item.show = true
-        this.hotels.forEach(function (item2, i, arr) {
-            if (item2 != item) {
-                item2.show = false;
-            }
-        });
-        this.cartService.createCart(item.id, 'hotel', item, 'Hotel');
+        if (item) {
+            item.show = true
+            this.hotels.forEach(function (item2, i, arr) {
+                if (item2 != item) {
+                    item2.show = false;
+                }
+            });
+            this.cartService.createCart(item.id, 'hotel', item, 'Hotel');
+        }
         this.navCtrl.push(PhotographerPage);
     }
 
-    openMenu(){
+    openMenu() {
         this.menu.open();
     }
 

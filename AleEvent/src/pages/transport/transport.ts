@@ -35,14 +35,17 @@ export class TransportPage {
     }
 
     openTransport(item) {
-        item.show = !item.show;
-        if (!item.show) return;
-        this.transports.forEach(function (item2, i, arr) {
-            if (item2 != item) {
-                item2.show = false;
-            }
-        });
-        this.cartService.createCart(item.id, 'transport', item, 'Transport');
+        if (item) {
+            item.show = !item.show;
+            if (!item.show) return;
+            this.transports.forEach(function (item2, i, arr) {
+                if (item2 != item) {
+                    item2.show = false;
+                }
+            });
+
+            this.cartService.createCart(item.id, 'transport', item, 'Transport');
+        }
         this.navCtrl.push(FormPage);
     }
 

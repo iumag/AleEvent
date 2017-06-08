@@ -18,7 +18,7 @@ export class CartService {
 
     createCart(entity_id: Number, entity_type: String, item: Array<any>, name: String) {
         this.allSum.allSum = 0;
-        if (item.cost) this.allSum.allSum += +item.cost
+        //if (item.cost) this.allSum.allSum += +item.cost
         this.carts.forEach(function (element, i, arr) {
             if (entity_type != 'related_event') {
                 if (element.entity_type === entity_type) {
